@@ -7,7 +7,7 @@ export default function App() {
     <div className="App">
       <div className="container">
       <Weather />
-      <footer className="mt-3">Coded by Alicia Buelow and open-sourced <a href="https://github.com/aliciabuelow/react-weather-app" target="_blank">on GitHub</a></footer>
+      <footer className="mt-3">Coded by Alicia Buelow and <a href="https://github.com/aliciabuelow/react-weather-app" target="_blank">open-sourced on GitHub</a></footer>
       </div>
     </div>
     )

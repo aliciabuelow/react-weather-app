@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Weather.css'
 import axios from 'axios';
+import FormattedDate from './FormattedDate'
 
 export default function Weather() {
     const [isReady, setIsReady] = useState(false);
@@ -14,7 +15,8 @@ export default function Weather() {
             icon: response.data.condition.icon_url,
             temperature: response.data.temperature.current,
             humidity: response.data.temperature.humidity,
-            wind: response.data.wind.speed
+            wind: response.data.wind.speed,
+            date: new Date(response.data.time * 1000)
         })
         setIsReady(true)
     }
@@ -48,7 +50,7 @@ export default function Weather() {
                         {weatherData.city}
                     </div>
                     <div className="city-timestamp">
-                        Saturday 12:00 pm
+                        <FormattedDate date={weatherData.date} />
                     </div>
                     <div className="condition">
                         {weatherData.description}
@@ -60,7 +62,7 @@ export default function Weather() {
     }
  else {
     const apiKey = "04dbc8004716437tab5bc0bfo1baf277";
-    let defaultCity = "Perth";
+    let defaultCity = "Berlin";
     const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${defaultCity}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
     return "Loading..."
