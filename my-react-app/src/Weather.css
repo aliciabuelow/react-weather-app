@@ -26,7 +26,7 @@
 }
 
 .weather img {
-    width: 64px;
+    width: 75px;
     margin-right: 5px;
 }
 
@@ -48,7 +48,6 @@
 .weather .weather-details {
     display: inline-block;
     position: relative;
-    top: 17px;
     left: -20px;
     font-size: 12px;
     opacity: 0.7;
