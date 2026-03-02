@@ -1,4 +1,5 @@
 import FormattedDate from './FormattedDate';
+import DisplayTemperature from './DisplayTemperature';
 
 export default function DisplayWeather(props) {
     return (
@@ -7,12 +8,7 @@ export default function DisplayWeather(props) {
             <div className="weather-content row">
                 <div className="col-8 text-start">
                     <img src={props.data.icon} alt={props.data.description} />
-                    <span className="temperature">
-                        {Math.round(props.data.temperature)}
-                    </span>
-                    <span className="temperature-units">
-                        °C|°F
-                    </span>
+                    <DisplayTemperature metric={props.data.temperature} />
                     <span className="weather-details">
                         <ul>
                             <li>Humidity: {props.data.humidity}%</li>
