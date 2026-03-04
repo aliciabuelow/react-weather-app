@@ -11,7 +11,7 @@ export default function Weather() {
 
     useEffect (() => {
         setIsReady(false);
-    }, []);
+    }, [weatherData.city]);
 
     function handleResponse(response) {
         setWeatherData({
