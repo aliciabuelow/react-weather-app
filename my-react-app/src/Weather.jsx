@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Weather.css'
 import axios from 'axios';
 import DisplayWeather from './DisplayWeather';
@@ -8,6 +8,10 @@ export default function Weather() {
     const [isReady, setIsReady] = useState(false);
     const [weatherData, setWeatherData] = useState(null);
     const [cityQuery, setCityQuery] = useState("Perth");
+
+    useEffect (() => {
+        setIsReady(false);
+    }, []);
 
     function handleResponse(response) {
         setWeatherData({
@@ -20,7 +24,7 @@ export default function Weather() {
             wind: response.data.wind.speed,
             date: new Date(response.data.time * 1000)
         })
-        setIsReady(true)
+        setIsReady(true);
     }
 
     function handleSubmit(event) {
