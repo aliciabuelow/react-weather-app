@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './Weather.css'
 import axios from 'axios';
 import DisplayWeather from './DisplayWeather';
@@ -9,9 +9,6 @@ export default function Weather() {
     const [weatherData, setWeatherData] = useState(null);
     const [cityQuery, setCityQuery] = useState("Perth");
 
-    useEffect (() => {
-        setIsReady(false);
-    }, [weatherData.city]);
 
     function handleResponse(response) {
         setWeatherData({
@@ -50,7 +47,7 @@ export default function Weather() {
                 <input type="submit" value="Search" className="search-button btn btn-primary" />
             </form>
         <DisplayWeather data={weatherData} />
-        <DisplayForecast city={cityQuery} />
+        <DisplayForecast city={weatherData.city} />
         </div>
     )
     }
