@@ -34,7 +34,7 @@ export default function Weather() {
     }
 
     function search() {
-        const apiKey = "04dbc8004716437tab5bc0bfo1baf277";
+        const apiKey = import.meta.env.VITE_API_KEY;
         const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityQuery}&key=${apiKey}`;
         axios.get(apiUrl).then(handleResponse);
     }
